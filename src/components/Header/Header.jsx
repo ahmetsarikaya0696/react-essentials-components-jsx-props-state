@@ -1,4 +1,5 @@
-import reactImg from "../assets/react-core-concepts.png";
+import reactImg from "../../assets/react-core-concepts.png";
+import classes from "./Header.module.css";
 
 const reactDescriptions = ["Fundamental", "Cruical", "Core"];
 
@@ -10,7 +11,7 @@ function Header() {
   const description = reactDescriptions[getRandomInt(3)];
 
   return (
-    <header>
+    <header className={classes.header}>
       <img src={reactImg} alt="Stylized atom" />
       <h1>React Essentials</h1>
       <p>
