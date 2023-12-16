@@ -1,11 +1,7 @@
-function TabButton({ children }) {
-  const hadleClick = () => {
-    console.log(children);
-  };
-
+function TabButton({ children, onSelect }) {
   return (
     <li>
-      <button onClick={hadleClick}>{children}</button>
+      <button onClick={onSelect}>{children}</button>
     </li>
   );
 }
