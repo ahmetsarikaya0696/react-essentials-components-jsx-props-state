@@ -4,8 +4,8 @@ import TabButton from "./components/TabButton.jsx";
 import { CORE_CONCEPTS } from "./data.js";
 
 function App() {
-  const hadleSelect = () => {
-    console.log("Hello world!");
+  const hadleSelect = (selectedButton) => {
+    console.log(selectedButton);
   };
 
   return (
@@ -23,10 +23,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={hadleSelect}>Components</TabButton>
-            <TabButton onSelect={hadleSelect}>JSX</TabButton>
-            <TabButton onSelect={hadleSelect}>Props</TabButton>
-            <TabButton onSelect={hadleSelect}>State</TabButton>
+            <TabButton onSelect={() => hadleSelect("components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => hadleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => hadleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => hadleSelect("state")}>State</TabButton>
           </menu>
         </section>
       </main>
