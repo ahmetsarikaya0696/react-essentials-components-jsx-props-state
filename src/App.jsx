@@ -5,11 +5,23 @@ import TabButton from "./components/TabButton.jsx";
 import { CORE_CONCEPTS, EXAMPLES } from "./data.js";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("components");
+  const [selectedTopic, setSelectedTopic] = useState();
 
   const hadleSelect = (selectedButton) => {
     setSelectedTopic(selectedButton);
   };
+
+  let tabContent = !selectedTopic ? (
+    <p>Please select a topic</p>
+  ) : (
+    <div className="tab-content">
+      <h3>{EXAMPLES[selectedTopic].title}</h3>
+      <p>{EXAMPLES[selectedTopic].description}</p>
+      <pre>
+        <code>{EXAMPLES[selectedTopic].code}</code>
+      </pre>
+    </div>
+  );
 
   return (
     <div>
@@ -33,13 +45,7 @@ function App() {
             <TabButton onSelect={() => hadleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => hadleSelect("state")}>State</TabButton>
           </menu>
-          <div className="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div>
+          {tabContent}
         </section>
       </main>
     </div>
