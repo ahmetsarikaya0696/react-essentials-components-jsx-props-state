@@ -31,37 +31,22 @@ function App() {
           <h2>Core Concepts</h2>
           <ul>
             {CORE_CONCEPTS.map((data) => (
-              <CoreConcept {...data} />
+              <CoreConcept key={data.title} {...data} />
             ))}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton
-              isSelected={selectedTopic == "components"}
-              onSelect={() => hadleSelect("components")}
-            >
-              Components
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic == "jsx"}
-              onSelect={() => hadleSelect("jsx")}
-            >
-              JSX
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic == "props"}
-              onSelect={() => hadleSelect("props")}
-            >
-              Props
-            </TabButton>
-            <TabButton
-              isSelected={selectedTopic == "state"}
-              onSelect={() => hadleSelect("state")}
-            >
-              State
-            </TabButton>
+            {Object.keys(EXAMPLES).map((key) => (
+              <TabButton
+                key={key}
+                isSelected={selectedTopic == key}
+                onSelect={() => hadleSelect(key)}
+              >
+                {EXAMPLES[key].title}
+              </TabButton>
+            ))}
           </menu>
           {tabContent}
         </section>
