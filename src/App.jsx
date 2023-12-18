@@ -38,12 +38,30 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => hadleSelect("components")}>
+            <TabButton
+              isSelected={selectedTopic == "components"}
+              onSelect={() => hadleSelect("components")}
+            >
               Components
             </TabButton>
-            <TabButton onSelect={() => hadleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => hadleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => hadleSelect("state")}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic == "jsx"}
+              onSelect={() => hadleSelect("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic == "props"}
+              onSelect={() => hadleSelect("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic == "state"}
+              onSelect={() => hadleSelect("state")}
+            >
+              State
+            </TabButton>
           </menu>
           {tabContent}
         </section>
