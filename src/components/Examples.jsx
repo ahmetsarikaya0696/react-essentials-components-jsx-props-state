@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { EXAMPLES } from "../data.js";
 import TabButton from "./TabButton.jsx";
+import { Section } from "./Section.jsx";
 
 export function Examples() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -22,20 +23,19 @@ export function Examples() {
   );
 
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section id="examples" title="Examples">
       <menu>
         {Object.keys(EXAMPLES).map((key) => (
           <TabButton
             key={key}
             isSelected={selectedTopic == key}
-            onSelect={() => hadleSelect(key)}
+            onClick={() => hadleSelect(key)}
           >
             {EXAMPLES[key].title}
           </TabButton>
         ))}
       </menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
