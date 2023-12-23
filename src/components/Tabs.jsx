@@ -1,9 +1,9 @@
 import React from "react";
 
-export function Tabs({ children, buttons }) {
+export function Tabs({ children, buttons, ButtonsWrapper }) {
   return (
     <>
-      <menu>{buttons}</menu>
+      <ButtonsWrapper>{buttons}</ButtonsWrapper>
       {children}
     </>
   );

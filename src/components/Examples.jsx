@@ -37,7 +37,7 @@ export function Examples() {
 
   return (
     <Section id="examples" title="Examples">
-      <Tabs buttons={buttons}>{tabContent}</Tabs>
+      <Tabs ButtonsWrapper="menu" buttons={buttons}>{tabContent}</Tabs>
     </Section>
   );
 }
